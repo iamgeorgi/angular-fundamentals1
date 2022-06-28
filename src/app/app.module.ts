@@ -8,6 +8,7 @@ import { EventsListComponent } from './events/events-list/events-list.component'
 import { EventItemComponent } from './events/event-item/event-item.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
 import { EventService } from './events/services/event.service';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EventService } from './events/services/event.service';
     EventsListComponent,
     EventItemComponent,
     NavbarComponent,
+    EventDetailComponent,
   ], // if you want to add Component, Pipe or Directive
   imports: [
     BrowserModule,
