@@ -13,8 +13,9 @@ export class EventItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logFoo() {
-    console.log('foo');
+  getStartTimeClass() {
+    const isEarlyStart = this.event && this.event.time === '8:00 am'
+    return {bold: isEarlyStart}
   }
 
 }

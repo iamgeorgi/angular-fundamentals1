@@ -1,4 +1,8 @@
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, Input, OnInit } from '@angular/core';
+import { EventService } from '../services/event.service';
+
+declare let toastr;
 
 @Component({
   selector: 'app-events-list',
@@ -6,23 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./events-list.component.css']
 })
 export class EventsListComponent implements OnInit {
-  event1: any = {
-    id: 1,
-    name: 'Angular Connect',
-    date: '9/26/2036',
-    time: '10:00 am',
-    price: 599.99,
-    imageUrl: '/app/assets/images/angularconnect-shield.png',
-    location: {
-      address: '1057 DT',
-      city: 'London',
-      country: 'England'
-    }
+  events: {}[];
+
+  constructor(private eventService: EventService) { 
   }
 
-  constructor() { }
-
   ngOnInit(): void {
+    this.events = this.eventService.getEvents();
+  }
+
+  handleItemClick(eventName) {
+    toastr.success(eventName)
   }
 
 }
